@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import SearchInput from "./components/searchBar/SearchBar";
+import DataView from "./pages/dataView/DataView";
+import MapView from "./pages/mapView/MapView";
+import logo from "./logo.svg";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<SearchInput />} />
+          <Route path="/data-view/:postcode" element={<DataView />} />
+          <Route path="/map-view/:postcode" element={<MapView />} />
+        </Routes>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;

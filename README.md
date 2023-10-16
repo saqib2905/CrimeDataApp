@@ -44,3 +44,82 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+### `npm i` to install the dependencies.
+
+`npm i --legacy-peer-deps` if any version conflicts
+
+### created components- along with their tests
+
+'CrimeTable'
+'HistoricSearch'
+'SearchInput' (container for HistoricSearch as well, could make it standalone and create another contianer in pages, to render both these comps instead)
+'CrimeMap' (just the scafolding-for creating the reusable comp)
+
+### Types
+
+Crime data
+Postcode data
+
+### created utils
+
+'added functions for apicalls using axios'
+
+# added packages :
+
+'material UI'
+'axios'
+'react-router-dom'
+'@emotion/react'
+'@emotion/styled'
+'@fontsource/roboto'
+
+App functionality:
+
+- user types any postcode in the searchfield
+- user clicks search button
+  (triggers validateAndSubmit function and validate the postcode and stores in localstorage and then i show it to the HistoricSearch comp UI)
+- user clicks on any postcode viewdata link (and routes to /data-view/:postcode)
+  (i update the query string in the url and make the fetchpostcodes and fetchcrimesdata api calls in utils)
+  - user see the crimeData for related postcode in a table with
+    'Date of Crime'
+    Category of Crime'
+    'Approximate Street Name'
+    'Outcome Status'
+
+### App Architecture:
+
+src/
+|-- components/
+| |-- crimeTable/
+| | |-- CrimeTable.tsx
+| | |-- CrimeTable.test.tsx
+| |-- searchInput/
+| | |-- SearchInput.tsx
+| | |-- SearchInput.test.tsx
+| |-- historicSearch/
+| | |-- HistoricSearch.tsx
+| | |-- HistoricSearch.test.tsx
+| |-- crimeTable/
+| | |-- CrimeTable.tsx
+| | |-- CrimeTable.test.tsx
+|-- context/
+| |-- DataContext.tsx
+|-- pages/
+
+<!-- | |-- Home.tsx -->
+
+| |-- DataView.tsx
+
+<!-- | |-- NotFound.tsx -->
+
+|-- utils/
+| |-- api.ts
+| |-- utils.ts
+|-- types/
+| |-- Crime.types.ts
+| |-- Postcode.types.ts
+|-- App.tsx
+|-- index.tsx
+|-- theme.ts
+|-- routes.ts
