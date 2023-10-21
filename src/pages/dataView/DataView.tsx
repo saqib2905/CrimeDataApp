@@ -10,7 +10,7 @@ const DataView: React.FC = () => {
   const { setSelectedPostcode, setCrimeData } = useDataContext();
   const { postcode } = useParams<{ postcode: string }>();
   const [crimeData, setLocalCrimeData] = useState<CrimeType[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true); // Initialize as loading
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   useEffect(() => {
     const fetchData = async () => {
       if (postcode) {
@@ -20,7 +20,7 @@ const DataView: React.FC = () => {
           const crimePostcodeData = await fetchCrimeData(latitude, longitude);
           setLocalCrimeData(crimePostcodeData);
           setSelectedPostcode(postcode);
-          setCrimeData(crimePostcodeData); // Set global crimeData here
+          setCrimeData(crimePostcodeData);
           setIsLoading(false);
         } catch (error) {
           console.error("Error fetching data:", error);

@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { MemoryRouter } from "react-router-dom";
-import SearchInput from "./SearchBar";
+import Searchbar from "./SearchBar";
 import { DataContextProvider } from "../../context/DataContext";
 
 const theme = createTheme();
@@ -12,15 +12,13 @@ describe("SearchInput Component", () => {
     render(
       <ThemeProvider theme={theme}>
         <MemoryRouter>
-          {/* Use MemoryRouter to provide routing context */}
           <DataContextProvider>
-            <SearchInput />
+            <Searchbar />
           </DataContextProvider>
         </MemoryRouter>
       </ThemeProvider>,
     );
 
-    // Assert that the component renders as expected
     const searchBarElement = screen.getByText("Search");
     expect(searchBarElement).toBeInTheDocument();
   });

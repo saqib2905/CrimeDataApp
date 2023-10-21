@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import SearchInput from "./components/searchBar/SearchBar";
+// import SearchInput from "./components/searchBar/SearchBar";
 import DataView from "./pages/dataView/DataView";
 import MapView from "./pages/mapView/MapView";
 import logo from "./logo.svg";
+import Dashboard from "./pages/Dashboard";
 
 const App: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const App: React.FC = () => {
       </header>
       <Router>
         <Routes>
-          <Route path="/" element={<SearchInput />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/data-view/:postcode" element={<DataView />} />
           <Route path="/map-view/:postcode" element={<MapView />} />
         </Routes>
